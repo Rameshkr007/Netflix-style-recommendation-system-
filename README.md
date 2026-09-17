@@ -47,6 +47,29 @@
                          │  watchlist_items       │
                          └────────────────────────┘
 ```
+Running locally without Docker
+cd backend
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
 
+# point at a local Postgres + Redis, or use SQLite for quick local testing:
+export DATABASE_URL="sqlite:///./local.db"
+export REDIS_URL="redis://localhost:6379/0"   # optional -- the app fails open if Redis is down
+
+python scripts/generate_sample_data.py   # if data/ doesn't already exist
+python scripts/seed_database.py
+uvicorn app.main:app --reload
+In a second terminal, run the frontend:
+
+cd frontend
+npm install
+cp .env.local.example .env.local   # defaults to http://localhost:8000/api/v1
+npm run dev
+Visit http://localhost:3000.
+
+Running tests
+cd backend
+pip install -r requirements.txt
+pytest -v
 
 
