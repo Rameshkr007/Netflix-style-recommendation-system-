@@ -1,0 +1,17 @@
+{
+  "ncf": {
+    "rmse": 0.6908,
+    "mae": 0.5608,
+    "precision_at_10": 0.0202,
+    "recall_at_10": 0.08,
+    "ndcg_at_10": 0.0397,
+    "n_users_evaluated": 218
+  },
+  "svd": {
+    "rmse": 0.8429,
+    "mae": 0.6859
+  },
+  "training_time_seconds": 2.7,
+  "model_parameters": 60769,
+  "training_samples": 7224
+}
